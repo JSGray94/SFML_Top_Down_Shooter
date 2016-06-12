@@ -13,7 +13,9 @@ public:
 	
 private:
 	sf::RenderWindow mWindow;
-	sf::CircleShape mPlayer;
+
+	sf::Sprite mPlayer;
+	sf::Texture mTexture;
 
 	bool mIsMovingUp;
 	bool mIsMovingDown;
