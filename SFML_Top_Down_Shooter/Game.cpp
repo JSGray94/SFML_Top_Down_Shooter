@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include <SFML\Graphics.hpp>
 
 //The constructor for a game object. Sets window and player attributes.
 Game::Game()
@@ -8,7 +8,7 @@ Game::Game()
 	, mPlayer()
 {
 	//Give file path parameter for the texture to load in as the player sprite.
-	if (!mTexture.loadFromFile("/res/sprite.png"))
+	if (!mTexture.loadFromFile("res/sprite.png"))
 	{
 		//Throw an exception.
 	}
