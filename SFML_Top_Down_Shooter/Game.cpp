@@ -8,7 +8,7 @@ Game::Game()
 	, mPlayer()
 {
 	//Give file path parameter for the texture to load in as the player sprite.
-	if (!mTexture.loadFromFile("/res/playerSprite.png"))
+	if (!mTexture.loadFromFile("/res/sprite.png"))
 	{
 		//Throw an exception.
 	}
