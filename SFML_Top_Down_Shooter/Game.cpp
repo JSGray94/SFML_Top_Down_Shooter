@@ -4,23 +4,36 @@
 //The constructor for a game object. Sets window and player attributes.
 Game::Game()
 	: mWindow(sf::VideoMode(1366, 768), "SFML GAME")
+	, mTexture()
 	, mPlayer()
 {
-	mPlayer.setRadius(40.0f);
-	mPlayer.setPosition(100.0f, 100.0f);
-	mPlayer.setFillColor(sf::Color::Cyan);
+	//Exception handling.
+	//if (!(mTexture.loadFromFile("playerSprite.png")))
+	//{
+		//Handle
+	//}
+	mPlayer.setTexture(mTexture);
+	mPlayer.setPosition(100, 100);
 }
 
 //Main run function for the game object, calls several functions within game to carry out game loop.
 void Game::run()
 {
+	//Do some book keeping here to prevent mistakes in game logic with time steps.
 	sf::Clock clock;
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	const sf::Time TimePerFrame = sf::seconds(1.0f / 60.f);
 
 	while (mWindow.isOpen())
 	{
-		sf::Time deltaTime = clock.restart();
-		processEvents();
-		update(deltaTime);
+		//This inner loop is executed at a constant rate.
+		timeSinceLastUpdate += clock.restart();
+		while (timeSinceLastUpdate > TimePerFrame)
+		{
+			timeSinceLastUpdate -= TimePerFrame;
+			processEvents();
+			update(TimePerFrame);
+		}
 		render();
 	}
 }
