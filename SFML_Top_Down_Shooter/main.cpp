@@ -3,7 +3,6 @@ This is a game application that serves the purpose of a tutorial. The end produc
 will result in a type of top-down shooter game.
 */
 
-#include <SFML\Graphics.hpp>
 #include "Game.h"
 
 int main()
